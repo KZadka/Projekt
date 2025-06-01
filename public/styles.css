@@ -1,0 +1,104 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+#app {
+  max-width: 420px;
+  margin: 48px auto;
+  background: #fff;
+  padding: 32px 28px 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+h2 {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+label {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 8px 10px;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #125ea7;
+}
+.error {
+  color: #d32f2f;
+  font-size: 0.95em;
+  min-height: 18px;
+}
+.success {
+  color: #388e3c;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+blockquote {
+  background: #f1f8ff;
+  border-left: 4px solid #1976d2;
+  margin: 18px 0 10px 0;
+  padding: 12px 18px;
+  font-style: italic;
+  color: #333;
+  border-radius: 6px;
+}
+blockquote small {
+  display: block;
+  margin-top: 8px;
+  color: #1976d2;
+  font-style: normal;
+  font-weight: 500;
+  text-align: right;
+}
+#logoutBtn {
+  background: #e0e0e0;
+  color: #333;
+  margin-top: 18px;
+}
+#logoutBtn:hover {
+  background: #bdbdbd;
+}
+@media (max-width: 500px) {
+  #app {
+    max-width: 98vw;
+    padding: 16px 4vw 12px 4vw;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}
