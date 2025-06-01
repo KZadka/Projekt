@@ -1,7 +1,3 @@
-// Plik startowy JS dla frontendu
-// Tutaj pojawi się logika formularza i pobierania cytatów
-
-// Formularz rejestracji/logowania
 const app = document.getElementById('app');
 
 app.innerHTML = `
@@ -34,7 +30,6 @@ registerForm.addEventListener('submit', function (e) {
   e.preventDefault();
   let valid = true;
 
-  // Walidacja nazwy użytkownika
   const username = registerForm.username.value.trim();
   const usernameError = document.getElementById('usernameError');
   if (username.length < 4 || username.length > 20) {
@@ -44,7 +39,6 @@ registerForm.addEventListener('submit', function (e) {
     usernameError.textContent = '';
   }
 
-  // Walidacja emaila (regex)
   const email = registerForm.email.value.trim();
   const emailError = document.getElementById('emailError');
   const emailRegex = /^[\w-.]+@[\w-]+\.[a-z]{2,}$/i;
@@ -55,10 +49,8 @@ registerForm.addEventListener('submit', function (e) {
     emailError.textContent = '';
   }
 
-  // Walidacja hasła
   const password = registerForm.password.value;
   const passwordError = document.getElementById('passwordError');
-  // Minimum 8 znaków, litery, cyfry, znak specjalny
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
   if (!passwordRegex.test(password)) {
     passwordError.textContent = 'Hasło musi mieć min. 8 znaków, zawierać litery, cyfry i znak specjalny.';
@@ -67,7 +59,6 @@ registerForm.addEventListener('submit', function (e) {
     passwordError.textContent = '';
   }
 
-  // Powtórzenie hasła
   const confirmPassword = registerForm.confirmPassword.value;
   const confirmPasswordError = document.getElementById('confirmPasswordError');
   if (password !== confirmPassword) {
@@ -86,7 +77,6 @@ registerForm.addEventListener('submit', function (e) {
   }
 });
 
-// Dodanie formularza do pobierania cytatów po rejestracji
 function showQuoteForm() {
   app.innerHTML = `
     <h2>Witaj!</h2>
@@ -105,7 +95,8 @@ function showQuoteForm() {
     const quoteResult = document.getElementById('quoteResult');
     quoteResult.textContent = 'Ładowanie...';
     try {
-      const res = await fetch(`http://localhost:3000/api/quote?topic=${encodeURIComponent(topic)}`);
+
+      const res = await fetch(`/api/quote?topic=${encodeURIComponent(topic)}`);
       const data = await res.json();
       if (res.ok) {
         quoteResult.innerHTML = `<blockquote>"${data.content}"<br><small>- ${data.author}</small></blockquote>`;
