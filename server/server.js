@@ -27,7 +27,8 @@ app.get('/api/quote', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
+// Catch-all dla SPA, ale z wykluczeniem ścieżek zaczynających się od /api
+app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
